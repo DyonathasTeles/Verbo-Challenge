@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./assets/images.png" type="image/x-icon">
+    <title>Verbo Challenge</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Verbo Challenge</h1>
+        <div id="game-container">
+            <p id="verb-sentence"></p>
+            <input type="text" id="verb-input" placeholder="Digite o verbo">
+            <button id="check-button">Verificar</button>
+            <p id="result"></p>
+        </div>
+        <div id="level-container">
+            <p>Escolha o nível de dificuldade:</p>
+            <button class="level-button" data-level="easy">Fácil</button>
+            <button class="level-button" data-level="medium">Médio</button>
+            <button class="level-button" data-level="hard">Difícil</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
