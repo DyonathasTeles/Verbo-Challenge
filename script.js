@@ -1,3 +1,5 @@
+
+// frases e respotas 
 const verbSentences = {
   easy: [
       { sentence: "O gato __ no telhado.", correctVerb: "está", alternatives: ["está", "foi", "será"] },
@@ -26,11 +28,16 @@ const resultElement = document.getElementById('result');
 const alternativesList = document.getElementById('alternatives-list');
 const levelButtons = document.querySelectorAll('.level-button');
 
+// Função que colocar as frases do nivel escolhido 
 function setLevel(level) {
   currentLevel = level;
   currentSentenceIndex = 0;
   const sentenceObject = verbSentences[currentLevel][currentSentenceIndex];
   verbSentenceElement.textContent = sentenceObject.sentence;
+  verbInputElement.disabled = false;
+  checkButton.disabled = false;
+  resultElement.textContent = '';
+  verbInputElement.value = '';
   setAlternatives(sentenceObject.alternatives);
 }
 
@@ -47,6 +54,7 @@ function setAlternatives(alternatives) {
   });
 }
 
+// Função que checa os verbos e define as frases de parabens ou de falha
 function checkVerb() {
   const playerGuess = verbInputElement.value.trim().toLowerCase();
   const correctVerb = verbSentences[currentLevel][currentSentenceIndex].correctVerb;
@@ -58,8 +66,8 @@ function checkVerb() {
       if (currentSentenceIndex < verbSentences[currentLevel].length) {
           const sentenceObject = verbSentences[currentLevel][currentSentenceIndex];
           verbSentenceElement.textContent = sentenceObject.sentence;
-          setAlternatives(sentenceObject.alternatives);
           verbInputElement.value = '';
+          setAlternatives(sentenceObject.alternatives);
       } else {
           resultElement.textContent = 'Parabéns, você completou todas as frases!';
           verbInputElement.disabled = true;
@@ -78,4 +86,4 @@ levelButtons.forEach(button => {
 checkButton.addEventListener('click', checkVerb);
 
 // Inicialize o jogo com o nível padrão (fácil)
-setLevel('easy');
+// setLevel('easy');
